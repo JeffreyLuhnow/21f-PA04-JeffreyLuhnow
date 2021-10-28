@@ -17,7 +17,7 @@
 #include "catch_setup.h"
 
 int main(int argc, char** argv) {
-    if(argc == 1) {
+    /*if(argc == 1) {
         runCatchTests();
     }
     else {
@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
         std::ofstream o(argv[3]);
         o << "Writing to output file." << std::endl;
         o.close();
-    }
+    }*/
+    runCatchTests();
     return 0;
 }
