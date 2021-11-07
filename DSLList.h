@@ -11,7 +11,7 @@ class DSNode {
 public:
     DSNode(const T &d = T(), DSNode *n = NULL, DSNode *p = NULL) : data(d), next(n), prev(p) {} //constructor (d = data [the element]) (n = next [the pointer pointing to the next element]) (p = prev [the pointer pointing to the previous element])
     ~DSNode(){}
-    T data;          //provides element of type T
+    T data;         //provides element of type T
     DSNode *prev;   //pointer pointing to the next node
     DSNode *next;   //pointer pointing to the previous node
 };
@@ -27,7 +27,7 @@ public:
 
     //destructor
     ~Iterator(){
-        if( currNode == NULL) {
+        if(currNode == NULL) {
             currNode = NULL;
         }
     }
@@ -116,6 +116,16 @@ public:
         }
     }
 
+    //function to remove/pop an element from the linked list at a position
+    void popElement(T &d){
+        if(isEmpty() == true){ //if the list is empty, can't pop, display message
+            cout << "DEVELOPER ERROR: cannot pop from an empty list" << endl;
+        }
+        else{
+
+        }
+    }
+
     //function to clear the list
     void clear(){
         while(tail->prev != NULL){          //while there is still an element pointed to by the "prev" pointer (aka, until nothing is pointing to by prev)
@@ -125,9 +135,12 @@ public:
             size = 0;
         }
     }
+
 };
 
 #endif
 
+//add a pop/remove functions
+//change stack to use linked list
 
 

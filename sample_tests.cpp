@@ -16,6 +16,7 @@
 #include "catch.hpp"
 #include "DSLList.h"
 #include "DSStack.h"
+#include "AdjList.h"
 
 
 TEST_CASE("Testing Tests", "[multiplication]") {
@@ -67,4 +68,15 @@ TEST_CASE("Testing DSStack pop function"){
 
     REQUIRE(intList1->isEmpty() == true);
     REQUIRE(intList1->getSize() == 0);
+}
+
+
+TEST_CASE("testing Adj List"){
+    DSLList<T> *testList;
+    int x = 0;
+    int y = 1;
+    AdjList obj;
+    add_edge(testList, x, y);
+    REQUIRE(testList->getSize() != 0);
+    REQUIRE(testList->isEmpty() != true);
 }

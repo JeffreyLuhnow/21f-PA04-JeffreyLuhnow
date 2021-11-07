@@ -14,8 +14,8 @@ using namespace std;
 
 template <class T> class DSStack{
 private:
-    DSLList<string> *list;      //doubly linked list
-    DSVector<string> flightList; //vector
+    DSLList<T> *list;      //doubly linked list
+    DSVector<T> flightList; //vector
     int top;            //top of the LIFO
     int capacity;       //how much the stack can hold
 public:
@@ -28,7 +28,9 @@ public:
     bool isEmpty(); //bool to check if it is empty
     bool isFull(); //bool to check if it is full
     int getSize(); //returns the size of the stack
+    void clear();
 };
+
 
 //CONSTR, COPY CONSTR, AND DESTR
 template <class T>
@@ -38,18 +40,24 @@ DSStack<T>::DSStack(int size){ //constructor
     top = -1;
 }
 template <class T>
-DSStack<T>::DSStack(const DSStack& obj){ //copy constructor (CONFUSED)
+DSStack<T>::DSStack(const DSStack& obj){ //copy constructor
     obj.flightList = flightList;
     obj.capacity = capacity;
     obj.top = top;
 }
 template <class T>
 DSStack<T>::~DSStack(){ //destructor
-    delete[] flightList;
+    //delete[] flightList;
 }
 
 //MEMBER FUNCTIONS OF THE CLASS DSSTACK
 
+template <class T>
+void DSStack<T>::clear(){
+    for(int i = 0; i < top; i++){
+        flightList[top--];
+    }
+}
 template <class T>
 void DSStack<T>::push(T element){ //adds an element to the stack
     if(isFull() == true){ //if the stack is full, add more capacity and insert the element at the new top
