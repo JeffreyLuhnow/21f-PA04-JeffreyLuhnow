@@ -52,6 +52,7 @@ DSStack<T>::~DSStack(){ //destructor
 
 //MEMBER FUNCTIONS OF THE CLASS DSSTACK
 
+//clears the stack
 template <class T>
 void DSStack<T>::clear(){
     for(int i = 0; i < top; i++){
@@ -59,19 +60,21 @@ void DSStack<T>::clear(){
     }
 }
 
+//adds an element to the stack
 template <class T>
-void DSStack<T>::push(T element){ //adds an element to the stack
+void DSStack<T>::push(T element){
     if(isFull() == true){ //if the stack is full, add more capacity and insert the element at the top
         capacity += 10;
         flightList[++top] = element;
     }
-    else{               //if it's not full add the element
+    else{               //if it's not full add the element but keep capacity unchanged
         flightList[++top] = element;
     }
 }
 
+//removes an element from the stack
 template <class T>
-T DSStack<T>::pop(){ //removes an element from the stack
+T DSStack<T>::pop(){
     if(isEmpty() == true){    //if the stack is empty, return an error message and do not try to remove an element
         cout << "STACK EMPTY, CANNOT REMOVE ELEMENT" << endl;
     }
@@ -80,8 +83,9 @@ T DSStack<T>::pop(){ //removes an element from the stack
     }
 }
 
+//reveals the element in the stack at the top
 template <class T>
-T DSStack<T>::peek(){ //reveals the element in the stack at the top
+T DSStack<T>::peek(){
     if(isEmpty() == true){        //if the stack is empty, cannot return an element, return error message
         cout << "Error: Stack is empty, no elements inside" << endl;
     }
@@ -90,8 +94,9 @@ T DSStack<T>::peek(){ //reveals the element in the stack at the top
     }
 }
 
+//if empty, returns true, if not empty, returns false
 template <class T>
-bool DSStack<T>::isEmpty(){ //if empty, returns true, if not empty, returns false
+bool DSStack<T>::isEmpty(){
     if(top == -1){
         return true;
     }
@@ -100,8 +105,9 @@ bool DSStack<T>::isEmpty(){ //if empty, returns true, if not empty, returns fals
     }
 }
 
+//if full, return true, if not, return false
 template <class T>
-bool DSStack<T>::isFull(){ //if full, return true, if not, return false
+bool DSStack<T>::isFull(){
     if(top == capacity - 1){
         return true;
     }
@@ -109,8 +115,10 @@ bool DSStack<T>::isFull(){ //if full, return true, if not, return false
         return false;
     }
 }
+
+//returns the size of the stack
 template <class T>
-int DSStack<T>::getSize(){ //returns the size of the stack
+int DSStack<T>::getSize(){
     return top + 1;
 }
 #endif //INC_21F_FLIGHT_PLANNER_DSSTACK_H

@@ -17,11 +17,11 @@ public:
 };
     //insertion/addition of a segment of the adjacency list
 template <class T>
-void add_edge(DSLList<T> adjacency_list, T u, T v, T x, T y, T z){
-    adjacency_list[u].push_back(v);
-    adjacency_list[v].push_back(u);
-    adjacency_list[x].push_back(x);
-    adjacency_list[y].push_back(y);
-    adjacency_list[z].push_back(z);
+void add_edge(DSLList<T> adjacency_list, T from, T to, T cost, T time, T airline){
+    adjacency_list[from].push_back(from);
+    adjacency_list[to].push_back(to);
+    adjacency_list[cost].push_back(cost);
+    adjacency_list[time].push_back(time);
+    adjacency_list[airline].push_back(airline);
 }
 #endif //INC_21F_FLIGHT_PLANNER_ADJLIST_H

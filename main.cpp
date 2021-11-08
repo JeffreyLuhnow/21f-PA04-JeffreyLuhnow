@@ -10,7 +10,6 @@
 #include "DSStack.h"
 #include "DSVector.h"
 #include "AdjList.h"
-#include "flights.h"
 
 /**
  * catch_setup.h and catch_setup.cpp contain the #define directive for
@@ -121,8 +120,15 @@ int main(int argc, char** argv) {
                         o << "      Totals for Itinerary " << i << ": Time: " << times[i] << " Cost: " << costs[i] << endl;
                     }
                 }
+                if(TCs[i] == "C"){
+                    o << "Flight " << count << ": " << cities[i] << ", " << dests[i] << "(Cost)" << endl;
+                    for(int k = 0; k < 3; k ++){
+                        o << "  Itinerary " << i << ": " << endl;
+                        o << "      " << cities[i] << "->" << dests[i] << " (" << airlines[i] << ")" << endl;
+                        o << "      Totals for Itinerary " << i << ": Time: " << times[i] << " Cost: " << costs[i] << endl;
+                    }
+                }
             }
-            o << "" << endl;
             o.close();
         }
         return 0;

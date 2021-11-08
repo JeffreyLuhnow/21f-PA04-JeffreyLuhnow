@@ -9,44 +9,9 @@ using namespace std;
 template <class T>
 class DSNode {
 public:
-    DSNode(const T &d = T(), DSNode *n = NULL, DSNode *p = NULL) : data(d), next(n), prev(p) {} //constructor (d = data [the element]) (n = next [the pointer pointing to the next element]) (p = prev [the pointer pointing to the previous element])
-    ~DSNode(){}
     T data;         //provides element of type T
     DSNode *prev;   //pointer pointing to the next node
     DSNode *next;   //pointer pointing to the previous node
-};
-
-//ITERATOR CLASS
-template <class T>
-class Iterator {
-private:
-    DSNode<T> *currNode; //pointer for the current node
-public:
-    //constructor
-    Iterator(DSNode<T> *node = NULL) : currNode(node){}
-
-    //destructor
-    ~Iterator(){
-        if(currNode == NULL) {
-            currNode = NULL;
-        }
-    }
-
-    DSNode<T> *nextNode() {
-        if(currNode == NULL) {
-            return NULL;
-        }
-        currNode = currNode->next;
-        return currNode;
-    }
-
-    DSNode<T> *prevNode() {
-        if(currNode == NULL){
-            return NULL;
-        }
-        currNode = currNode->prev;
-        return currNode;
-    }
 };
 
 //DSLLIST CLASS
@@ -113,16 +78,6 @@ public:
             currentLast->next = newNode;     //sets the next and prev pointers to point to the new node
             tail->prev = newNode;
             size++;
-        }
-    }
-
-    //function to remove/pop an element from the linked list at a position
-    void popElement(T &d){
-        if(isEmpty() == true){ //if the list is empty, can't pop, display message
-            cout << "DEVELOPER ERROR: cannot pop from an empty list" << endl;
-        }
-        else{
-
         }
     }
 

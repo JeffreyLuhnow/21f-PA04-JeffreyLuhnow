@@ -62,6 +62,8 @@ TEST_CASE("Testing DSStack pop function"){
     intList1->push(1);
     intList1->push(2);
 
+    REQUIRE(intList1->isEmpty() == false);
+
     intList1->pop();
     intList1->pop();
     intList1->pop();
@@ -72,11 +74,11 @@ TEST_CASE("Testing DSStack pop function"){
 
 
 TEST_CASE("testing Adj List"){
-    DSLList<T> *testList;
-    int x = 0;
-    int y = 1;
-    AdjList obj;
-    add_edge(testList, x, y);
-    REQUIRE(testList->getSize() != 0);
-    REQUIRE(testList->isEmpty() != true);
+    DSLList<DSLList<int>> testList;
+    DSLList<int> list1;
+    testList.insertHead(list1);
+    REQUIRE(testList.sizeOfList() == 1);
+    REQUIRE(testList.isEmpty() == false);
+
+
 }
