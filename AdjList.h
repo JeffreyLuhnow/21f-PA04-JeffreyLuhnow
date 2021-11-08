@@ -12,13 +12,12 @@ using namespace std;
 
 template <class T>
 class AdjList{
-
 public:
     void add_edge(DSLList<T>, T, T, T, T, T);
 };
     //insertion/addition of a segment of the adjacency list
 template <class T>
-void add_edge(DSLList<T> adjacency_list[], T u, T v, T x, T y, T z){
+void add_edge(DSLList<T> adjacency_list, T u, T v, T x, T y, T z){
     adjacency_list[u].push_back(v);
     adjacency_list[v].push_back(u);
     adjacency_list[x].push_back(x);

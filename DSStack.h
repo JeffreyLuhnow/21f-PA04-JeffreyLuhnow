@@ -19,7 +19,7 @@ private:
     int top;            //top of the LIFO
     int capacity;       //how much the stack can hold
 public:
-    DSStack(int size = SIZE); //constructor
+    DSStack(int size = 0); //constructor
     DSStack(const DSStack&); //copy constructor
     ~DSStack();
     void push(T); //adds to stack
@@ -28,7 +28,7 @@ public:
     bool isEmpty(); //bool to check if it is empty
     bool isFull(); //bool to check if it is full
     int getSize(); //returns the size of the stack
-    void clear();
+    void clear(); //clears the stack
 };
 
 
@@ -47,7 +47,7 @@ DSStack<T>::DSStack(const DSStack& obj){ //copy constructor
 }
 template <class T>
 DSStack<T>::~DSStack(){ //destructor
-    //delete[] flightList;
+    delete[] flightList;
 }
 
 //MEMBER FUNCTIONS OF THE CLASS DSSTACK
@@ -58,22 +58,22 @@ void DSStack<T>::clear(){
         flightList[top--];
     }
 }
+
 template <class T>
 void DSStack<T>::push(T element){ //adds an element to the stack
-    if(isFull() == true){ //if the stack is full, add more capacity and insert the element at the new top
+    if(isFull() == true){ //if the stack is full, add more capacity and insert the element at the top
         capacity += 10;
         flightList[++top] = element;
     }
-    else{               //if it's not full, simply just add the element at the new top
+    else{               //if it's not full add the element
         flightList[++top] = element;
     }
-
 }
 
 template <class T>
 T DSStack<T>::pop(){ //removes an element from the stack
     if(isEmpty() == true){    //if the stack is empty, return an error message and do not try to remove an element
-        cout << "DEV MESSAGE: Error: STACK EMPTY, CANNOT REMOVE ELEMENT" << endl;
+        cout << "STACK EMPTY, CANNOT REMOVE ELEMENT" << endl;
     }
     else{                   //if the stack is NOT empty, remove the top element, and then set the top to one less
         return flightList[top--];
@@ -113,6 +113,4 @@ template <class T>
 int DSStack<T>::getSize(){ //returns the size of the stack
     return top + 1;
 }
-
-
 #endif //INC_21F_FLIGHT_PLANNER_DSSTACK_H
